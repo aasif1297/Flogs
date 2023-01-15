@@ -34,7 +34,7 @@ class FlogDao {
   Future update(Log log) async {
     // For filtering by key (ID), RegEx, greater than, and many other criteria,
     // we use a Finder.
-    final finder = Finder(filter: Filter.byKey(log.id));
+    final finder = Finder(filter: Filter.byKey(log.id!));
     await _flogsStore.update(
       await _db,
       log.toJson(),
@@ -44,7 +44,7 @@ class FlogDao {
 
   /// Deletes the `log` from Database
   Future delete(Log log) async {
-    final finder = Finder(filter: Filter.byKey(log.id));
+    final finder = Finder(filter: Filter.byKey(log.id!));
     await _flogsStore.delete(
       await _db,
       finder: finder,
